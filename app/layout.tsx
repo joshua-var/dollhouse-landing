@@ -21,7 +21,10 @@ export const metadata = {
   title: "Dollhouse - 3D Furniture Marketplace",
   description:
     "A 3D-powered furniture marketplace that lets you think like a designer and feel like you're playing a game.",
-    generator: 'v0.dev'
+  generator: 'v0.dev',
+  icons: {
+    icon: '/icon.png', // Path relative to the public directory, but Next.js handles app/icon.png
+  },
 }
 
 export default function RootLayout({
