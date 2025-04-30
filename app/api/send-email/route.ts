@@ -42,7 +42,7 @@ export async function POST(request: Request) {
     `;
 
     const { data, error } = await resend.emails.send({
-      from: 'Dollhouse Waitlist <waitlist@dollhouseai.co>', // Using verified domain
+      from: 'Dollhouse Waitlist <josh@dollhouseai.co>', // Set from address to user's email
       to: emailTo,
       subject: emailSubject,
       html: emailHtmlBody,
