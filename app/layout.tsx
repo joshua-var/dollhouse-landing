@@ -21,6 +21,9 @@ export const metadata = {
   title: "Dollhouse - Furniture Reimagined",
   description:
     "Shop like a designer with our AI-powered 3D furniture marketplace. Luxury furniture sourced from artisans worldwide.",
+  icons: {
+    icon: "/favicon.ico",
+  },
     generator: 'v0.dev'
 }
 
