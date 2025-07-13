@@ -1,17 +1,33 @@
 "use client"
 
+import { useEffect, useRef } from "react"
 import Image from "next/image"
 
 export default function Hero() {
+  const titleRef = useRef<HTMLHeadingElement>(null)
+
+  useEffect(() => {
+    // Initial page load animations
+    if (titleRef.current) {
+      titleRef.current.classList.add("animate-fade-in")
+    }
+  }, [])
+
   return (
-    <section className="pt-32 pb-12 bg-white relative overflow-hidden">
+    <section className="pt-32 pb-12 bg-white relative overflow-hidden" id="hero">
       {/* Background decorative elements */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-green-100 rounded-full blur-3xl opacity-30 -translate-x-1/2 -translate-y-1/2"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-green-100 rounded-full blur-3xl opacity-30 translate-x-1/2 translate-y-1/2"></div>
+      <div className="absolute top-0 left-0 w-96 h-96 bg-green-100 rounded-full blur-3xl opacity-30 -translate-x-1/2 -translate-y-1/2 animate-float"></div>
+      <div
+        className="absolute bottom-0 right-0 w-96 h-96 bg-green-100 rounded-full blur-3xl opacity-30 translate-x-1/2 translate-y-1/2 animate-float"
+        style={{ animationDelay: "1.5s" }}
+      ></div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-heading font-normal text-gray-900 mb-8 leading-tight">
+          <h1
+            ref={titleRef}
+            className="text-6xl md:text-7xl lg:text-8xl font-heading font-normal text-gray-900 mb-8 leading-tight opacity-0"
+          >
             Furniture Reimagined
           </h1>
         </div>

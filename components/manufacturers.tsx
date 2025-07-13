@@ -1,13 +1,45 @@
 "use client"
 
+import { useEffect, useRef } from "react"
 import Image from "next/image"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 
 export default function Manufacturers() {
+  const sectionRef = useRef<HTMLDivElement>(null)
+  const headerRef = useRef<HTMLDivElement>(null)
+  const imageRef = useRef<HTMLDivElement>(null)
+  const faqRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (entry.target === headerRef.current) {
+              entry.target.classList.add("animate-fade-in")
+            } else if (entry.target === imageRef.current) {
+              entry.target.classList.add("animate-scale-in")
+            } else if (entry.target === faqRef.current) {
+              entry.target.classList.add("animate-slide-up")
+            }
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.2 },
+    )
+
+    if (headerRef.current) observer.observe(headerRef.current)
+    if (imageRef.current) observer.observe(imageRef.current)
+    if (faqRef.current) observer.observe(faqRef.current)
+
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <section className="pt-8 pb-16 bg-gray-50" id="contact">
+    <section className="pt-8 pb-16 bg-gray-50" id="contact" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-20">
+        <div ref={headerRef} className="text-center mb-20 opacity-0">
           <p className="text-sm font-medium text-gray-600 uppercase tracking-wide mb-4">For Manufacturers</p>
           <h2 className="text-4xl md:text-5xl font-heading font-normal text-gray-900 mb-8 leading-tight">
             Let's Work Together
@@ -18,14 +50,14 @@ export default function Manufacturers() {
           </p>
           <a
             href="mailto:miran@dollhouseai.co"
-            className="inline-block bg-green-700 hover:bg-green-800 text-white rounded-full px-8 py-3 text-lg transition-colors"
+            className="inline-block bg-green-700 hover:bg-green-800 text-white rounded-full px-8 py-3 text-lg transition-all duration-300 btn-hover"
           >
             Contact
           </a>
         </div>
 
-        <div className="relative max-w-4xl mx-auto mb-16">
-          <div className="bg-gradient-to-br from-green-100 to-brown-100 rounded-3xl p-8 h-80 flex items-center justify-center">
+        <div ref={imageRef} className="relative max-w-4xl mx-auto mb-16 opacity-0">
+          <div className="bg-gradient-to-br from-green-100 to-brown-100 rounded-3xl p-8 h-80 flex items-center justify-center card-hover">
             <Image
               src="/images/modern-living-room.jpeg"
               alt="Modern minimalist living room with sage green chair, tan leather sofa, and white coffee table"
@@ -36,13 +68,13 @@ export default function Manufacturers() {
           </div>
         </div>
 
-        <div className="max-w-3xl mx-auto">
+        <div ref={faqRef} className="max-w-3xl mx-auto opacity-0">
           <div className="text-center mb-8">
             <h3 className="text-2xl font-heading font-normal text-gray-900 mb-2">Frequently Asked Questions</h3>
           </div>
 
           <Accordion type="single" collapsible className="w-full space-y-2">
-            <AccordionItem value="item-1" className="bg-white rounded-xl border border-gray-200 px-6">
+            <AccordionItem value="item-1" className="bg-white rounded-xl border border-gray-200 px-6 card-hover">
               <AccordionTrigger className="text-left font-medium text-gray-900 hover:text-green-600 transition-colors py-4">
                 What types of suppliers is Dollhouse looking for?
               </AccordionTrigger>
@@ -53,7 +85,7 @@ export default function Manufacturers() {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-2" className="bg-white rounded-xl border border-gray-200 px-6">
+            <AccordionItem value="item-2" className="bg-white rounded-xl border border-gray-200 px-6 card-hover">
               <AccordionTrigger className="text-left font-medium text-gray-900 hover:text-green-600 transition-colors py-4">
                 How does the onboarding process work?
               </AccordionTrigger>
@@ -64,7 +96,7 @@ export default function Manufacturers() {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-3" className="bg-white rounded-xl border border-gray-200 px-6">
+            <AccordionItem value="item-3" className="bg-white rounded-xl border border-gray-200 px-6 card-hover">
               <AccordionTrigger className="text-left font-medium text-gray-900 hover:text-green-600 transition-colors py-4">
                 Do I need to provide 3D models of my products?
               </AccordionTrigger>
@@ -75,7 +107,7 @@ export default function Manufacturers() {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-4" className="bg-white rounded-xl border border-gray-200 px-6">
+            <AccordionItem value="item-4" className="bg-white rounded-xl border border-gray-200 px-6 card-hover">
               <AccordionTrigger className="text-left font-medium text-gray-900 hover:text-green-600 transition-colors py-4">
                 What makes Dollhouse different from other furniture marketplaces?
               </AccordionTrigger>
@@ -87,7 +119,7 @@ export default function Manufacturers() {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-5" className="bg-white rounded-xl border border-gray-200 px-6">
+            <AccordionItem value="item-5" className="bg-white rounded-xl border border-gray-200 px-6 card-hover">
               <AccordionTrigger className="text-left font-medium text-gray-900 hover:text-green-600 transition-colors py-4">
                 When is Dollhouse launching?
               </AccordionTrigger>
@@ -97,7 +129,7 @@ export default function Manufacturers() {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-6" className="bg-white rounded-xl border border-gray-200 px-6">
+            <AccordionItem value="item-6" className="bg-white rounded-xl border border-gray-200 px-6 card-hover">
               <AccordionTrigger className="text-left font-medium text-gray-900 hover:text-green-600 transition-colors py-4">
                 What are the partnership requirements?
               </AccordionTrigger>
