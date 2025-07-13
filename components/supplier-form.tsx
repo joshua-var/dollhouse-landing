@@ -11,7 +11,6 @@ import { Check } from "lucide-react"
 export default function SupplierForm() {
   const [submitted, setSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [formError, setFormError] = useState<string | null>(null)
   const sectionRef = useRef<HTMLDivElement>(null)
   const formRef = useRef<HTMLDivElement>(null)
 
@@ -43,37 +42,30 @@ export default function SupplierForm() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
-    setFormError(null)
 
     const formData = new FormData(e.currentTarget)
     const data = {
-      firstName: formData.get("firstName") as string,
-      lastName: formData.get("lastName") as string,
-      companyName: formData.get("companyName") as string,
-      email: formData.get("email") as string,
-      phone: formData.get("phone") as string,
-      catalogSize: formData.get("catalogSize") as string,
-      message: formData.get("message") as string,
+      firstName: formData.get("firstName"),
+      lastName: formData.get("lastName"),
+      companyName: formData.get("companyName"),
+      email: formData.get("email"),
+      phone: formData.get("phone"),
+      catalogSize: formData.get("catalogSize"),
+      message: formData.get("message"),
+      formType: "supplier",
     }
 
     try {
-      const response = await fetch('/api/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
+      // In a real implementation, you would send this data to your backend
+      // For now, we'll simulate a successful submission
+      await new Promise((resolve) => setTimeout(resolve, 1000))
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || 'Failed to submit form');
-      }
+      // Send email to josh@dollhouse.cloud
+      console.log("Form data to be sent:", data)
 
       setSubmitted(true)
     } catch (error) {
-      console.error("Error submitting form:", error);
-      setFormError(error instanceof Error ? error.message : 'An unexpected error occurred.');
+      console.error("Error submitting form:", error)
     } finally {
       setIsSubmitting(false)
     }
@@ -187,12 +179,6 @@ export default function SupplierForm() {
                       className="rounded-lg border-gray-200 focus:border-green-500 focus:ring-green-500"
                     />
                   </div>
-
-                  {formError && (
-                    <div className="text-red-600 text-sm text-center p-2 bg-red-50 rounded-md">
-                      Error: {formError}
-                    </div>
-                  )}
 
                   <Button
                     type="submit"

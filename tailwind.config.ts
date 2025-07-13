@@ -20,8 +20,9 @@ const config = {
     },
     extend: {
       fontFamily: {
-        sans: ["var(--font-inter)", "sans-serif"],
-        heading: ["var(--font-space-grotesk)", "sans-serif"],
+        sans: ["var(--font-montserrat)", "sans-serif"],
+        heading: ["var(--font-playfair)", "serif"],
+        serif: ["var(--font-playfair)", "serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -82,19 +83,6 @@ const config = {
           800: "#744235",
           900: "#613a30",
           950: "#341c17",
-        },
-        gold: {
-          50: "#fdf8e9",
-          100: "#f9edc7",
-          200: "#f4dc91",
-          300: "#eec65a",
-          400: "#e9b033",
-          500: "#e09a1c",
-          600: "#c37a15",
-          700: "#a25915",
-          800: "#854618",
-          900: "#6f3a19",
-          950: "#3f1d0c",
         },
       },
       borderRadius: {

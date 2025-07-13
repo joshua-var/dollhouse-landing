@@ -1,30 +1,27 @@
 import type React from "react"
 import "./globals.css"
-import { Inter, Space_Grotesk } from "next/font/google"
+import { Playfair_Display, Montserrat } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
 
-// Load Inter font
-const inter = Inter({
+// Load Playfair Display for headings - luxury serif font
+const playfair = Playfair_Display({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-playfair",
   display: "swap",
 })
 
-// Load Space Grotesk font
-const spaceGrotesk = Space_Grotesk({
+// Load Montserrat for body text - premium sans-serif
+const montserrat = Montserrat({
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
+  variable: "--font-montserrat",
   display: "swap",
 })
 
 export const metadata = {
-  title: "Dollhouse - 3D Furniture Marketplace",
+  title: "Dollhouse - Furniture Reimagined",
   description:
-    "A 3D-powered furniture marketplace that lets you think like a designer and feel like you're playing a game.",
-  generator: 'v0.dev',
-  icons: {
-    icon: '/icon.png', // Path relative to the public directory, but Next.js handles app/icon.png
-  },
+    "Shop like a designer with our AI-powered 3D furniture marketplace. Luxury furniture sourced from artisans worldwide.",
+    generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -33,8 +30,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
-      <body className={inter.className}>
+    <html lang="en" className={`${montserrat.variable} ${playfair.variable}`}>
+      <body className={montserrat.className}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           {children}
         </ThemeProvider>

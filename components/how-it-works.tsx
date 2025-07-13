@@ -91,7 +91,7 @@ export default function HowItWorks() {
               <div className="bg-white p-2 rounded-2xl shadow-2xl gradient-border futuristic-shadow relative z-10">
                 <div className="aspect-video relative rounded-xl overflow-hidden">
                   <Image
-                    src="/images/main-demo.gif"
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3main.gif-Mj3uRcH83oBDW2eUO7xpbMjIardJl2.jpeg"
                     alt="Add furniture to your 3D space"
                     fill
                     className="object-cover"
@@ -114,7 +114,7 @@ export default function HowItWorks() {
               <div className="bg-white p-2 rounded-2xl shadow-2xl gradient-border futuristic-shadow relative z-10">
                 <div className="aspect-video relative rounded-xl overflow-hidden">
                   <Image
-                    src="/images/carousel-demo.gif"
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/4carousel.gif-4wyitCbbsXCsVohtSgk7dJkcSOPHzz.jpeg"
                     alt="Discover products with our carousel"
                     fill
                     className="object-cover"
@@ -199,7 +199,7 @@ export default function HowItWorks() {
               <div className="bg-white p-2 rounded-2xl shadow-2xl gradient-border futuristic-shadow relative z-10">
                 <div className="aspect-video relative rounded-xl overflow-hidden">
                   <Image
-                    src="/images/design-demo.gif"
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/5design.gif-F0a9wiLrFDbX3OxfZY0nJxNj0jyhgo.jpeg"
                     alt="Design mode for customizing your space"
                     fill
                     className="object-cover"
@@ -222,7 +222,7 @@ export default function HowItWorks() {
               <div className="bg-white p-2 rounded-2xl shadow-2xl gradient-border futuristic-shadow relative z-10">
                 <div className="aspect-video relative rounded-xl overflow-hidden">
                   <Image
-                    src="/images/dolly-demo.gif"
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/6dolly.gif-xoRnh5iTRh88RJ2wloPTJLRuL4n5OD.jpeg"
                     alt="Dolly AI design assistant"
                     fill
                     className="object-cover"

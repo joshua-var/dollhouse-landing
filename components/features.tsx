@@ -1,97 +1,65 @@
 "use client"
 
-import { useEffect, useRef } from "react"
-import { Layers, LayoutGrid, Paintbrush, Bot, Truck } from "lucide-react"
+import Image from "next/image"
 
 export default function Features() {
-  const features = [
-    {
-      icon: <Layers className="h-6 w-6 text-green-600" />,
-      title: "Live 3D Viewer",
-      description: "See your furniture in a 3D space before you buy, with true-to-scale dimensions.",
-    },
-    {
-      icon: <LayoutGrid className="h-6 w-6 text-green-600" />,
-      title: "Swipeable Discovery",
-      description: "Browse products in a horizontal carousel that learns your preferences with every swipe.",
-    },
-    {
-      icon: <Paintbrush className="h-6 w-6 text-green-600" />,
-      title: "Design Mode",
-      description: "Change walls, floors, and room dimensions to create your perfect space.",
-    },
-    {
-      icon: <Bot className="h-6 w-6 text-green-600" />,
-      title: "Meet Dolly",
-      description: "Our AI design assistant helps you create your dream space with natural language.",
-    },
-    {
-      icon: <Truck className="h-6 w-6 text-green-600" />,
-      title: "Reduced Returns",
-      description: "Our 3D visualization reduces return rates by ensuring furniture fits your space.",
-    },
-  ]
-
-  const sectionRef = useRef<HTMLDivElement>(null)
-  const cardsRef = useRef<(HTMLDivElement | null)[]>([])
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-slide-up")
-            entry.target.classList.remove("opacity-0")
-            observer.unobserve(entry.target)
-          }
-        })
-      },
-      { threshold: 0.1 },
-    )
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current)
-    }
-
-    cardsRef.current.forEach((card) => {
-      if (card) observer.observe(card)
-    })
-
-    return () => observer.disconnect()
-  }, [])
-
   return (
-    <section className="py-12 bg-white relative" id="features" ref={sectionRef}>
-      {/* Background elements */}
-      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-green-50/50 to-transparent"></div>
+    <section className="py-20 bg-neutral-50" id="features">
+      <div className="max-w-7xl mx-auto px-8 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <div className="space-y-8">
+            <div className="space-y-4">
+              <div className="w-16 h-px bg-gradient-to-r from-green-700 to-green-500"></div>
+              <h2 className="text-5xl font-heading font-normal text-gray-900 leading-[1.05] tracking-tight">
+                Shop Like a Designer
+              </h2>
+            </div>
 
-      <div className="container-narrow relative">
-        <div className="text-center mb-8 opacity-0" ref={(el) => (cardsRef.current[0] = el)}>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 font-heading">
-            Reimagining <span className="text-gradient">Furniture Shopping</span>
-          </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Dollhouse combines the best of Pinterest for inspiration, Tinder for discovery, and gaming for
-            visualization.
-          </p>
-        </div>
+            <div className="space-y-8">
+              <div className="flex items-start gap-6">
+                <div className="w-2 h-2 rounded-full bg-green-700 mt-3 flex-shrink-0"></div>
+                <h3 className="text-xl font-light text-gray-800 leading-relaxed">
+                  Luxury furniture sourced from artisans worldwide.
+                </h3>
+              </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 opacity-0"
-              ref={(el) => (cardsRef.current[index + 1] = el)}
-            >
-              <div className="flex flex-col items-center text-center">
-                <div className="rounded-full bg-green-50 w-12 h-12 flex items-center justify-center mb-3">
-                  {feature.icon}
-                </div>
-                <h3 className="text-base font-semibold text-gray-900 mb-1">{feature.title}</h3>
-                <p className="text-sm text-gray-600">{feature.description}</p>
+              <div className="flex items-start gap-6">
+                <div className="w-2 h-2 rounded-full bg-green-700 mt-3 flex-shrink-0"></div>
+                <h3 className="text-xl font-light text-gray-800 leading-relaxed">
+                  3D Design Studio with unlimited customization. Every piece goes into your room. Pick your own walls,
+                  floors, and lighting. Or change its dimensions.
+                </h3>
+              </div>
+
+              <div className="flex items-start gap-6">
+                <div className="w-2 h-2 rounded-full bg-green-700 mt-3 flex-shrink-0"></div>
+                <h3 className="text-xl font-light text-gray-800 leading-relaxed">
+                  Meet Dolly, our AI Interior Designer. She can shop and design full rooms, categories, and specific
+                  products. The sky is the limit.
+                </h3>
+              </div>
+
+              <div className="flex items-start gap-6">
+                <div className="w-2 h-2 rounded-full bg-green-700 mt-3 flex-shrink-0"></div>
+                <h3 className="text-xl font-light text-gray-800 leading-relaxed">
+                  24/7 Customer Service. Reach one of our specialists to help address your needs, at any time of day.
+                </h3>
               </div>
             </div>
-          ))}
+          </div>
+
+          <div className="relative">
+            <div className="relative overflow-hidden rounded-3xl">
+              <Image
+                src="/images/luxury-furniture-set.jpeg"
+                alt="Luxury modern furniture collection featuring sage green armchair, tan sofa, and cream coffee table"
+                width={900}
+                height={750}
+                className="w-full h-auto object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent rounded-3xl"></div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
