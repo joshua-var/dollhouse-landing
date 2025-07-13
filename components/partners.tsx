@@ -70,7 +70,7 @@ export default function Partners() {
   }, [])
 
   return (
-    <section className="py-8 bg-white" ref={sectionRef}>
+    <section className="py-8 bg-gray-50" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-12">
           <p ref={titleRef} className="text-sm font-medium text-gray-600 uppercase tracking-wide opacity-0">

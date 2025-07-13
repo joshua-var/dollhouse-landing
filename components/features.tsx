@@ -41,13 +41,13 @@ export default function Features() {
   }, [])
 
   return (
-    <section className="py-20 bg-neutral-50" id="features" ref={sectionRef}>
+    <section className="py-8 bg-gray-50" id="features" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-8 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <div ref={leftContentRef} className="space-y-8 opacity-0">
             <div className="space-y-4">
               <div className="w-16 h-px bg-gradient-to-r from-green-700 to-green-500"></div>
-              <h2 className="text-5xl font-heading font-normal text-gray-900 leading-[1.05] tracking-tight">
+              <h2 className="py-8 bg-gray-50">
                 Shop Like a Designer
               </h2>
             </div>

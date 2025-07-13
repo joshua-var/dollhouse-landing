@@ -14,7 +14,7 @@ export default function Hero() {
   }, [])
 
   return (
-    <section className="pt-32 pb-12 bg-white relative overflow-hidden" id="hero">
+    <section className="py-8 bg-gray-50" id="hero">
       {/* Background decorative elements */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-green-100 rounded-full blur-3xl opacity-30 -translate-x-1/2 -translate-y-1/2 animate-float"></div>
       <div
