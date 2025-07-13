@@ -37,7 +37,7 @@ export default function Manufacturers() {
   }, [])
 
   return (
-    <section className="pt-8 pb-16 bg-gray-50" id="contact" ref={sectionRef}>
+    <section className="pt-8 bg-gray-50 pb-0" id="contact" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div ref={headerRef} className="text-center mb-20 opacity-0">
           <p className="text-sm font-medium text-gray-600 uppercase tracking-wide mb-4">For Manufacturers</p>
@@ -68,7 +68,7 @@ export default function Manufacturers() {
           </div>
         </div>
 
-        <div ref={faqRef} className="max-w-3xl mx-auto opacity-0">
+        <div ref={faqRef} className="max-w-3xl mx-auto opacity-0 py-9">
           <div className="text-center mb-8">
             <h3 className="text-2xl font-heading font-normal text-gray-900 mb-2">Frequently Asked Questions</h3>
           </div>
